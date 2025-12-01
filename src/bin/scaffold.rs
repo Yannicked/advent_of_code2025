@@ -23,13 +23,13 @@ mod tests {
 
     #[test]
     fn test_part1() {
-        let input = "";
+        let input = include_str!("../../inputs/day02_test.txt");
         assert_eq!(part1(input), "todo");
     }
 
     #[test]
     fn test_part2() {
-        let input = "";
+        let input = include_str!("../../inputs/day02_test.txt");
         assert_eq!(part2(input), "todo");
     }
 }
@@ -54,9 +54,11 @@ fn main() {
     let day_padded = format!("{:02}", day);
     let module_name = format!("day{}", day_padded);
     let input_filename = format!("day{}.txt", day_padded);
+    let test_input_filename = format!("day{}_test.txt", day_padded);
 
     let rs_path = Path::new("src").join("bin").join(format!("{}.rs", module_name));
     let input_path = Path::new("inputs").join(&input_filename);
+    let test_input_path = Path::new("inputs").join(&test_input_filename);
 
     // Create input file if it doesn't exist
     if !input_path.exists() {
@@ -66,6 +68,14 @@ fn main() {
         }
     } else {
         println!("Input file already exists: {}", input_path.display());
+    }
+    if !test_input_path.exists() {
+        match fs::write(&test_input_path, "") {
+            Ok(_) => println!("Created empty test input file: {}", test_input_path.display()),
+            Err(e) => eprintln!("Failed to create test input file: {}", e),
+        }
+    } else {
+        println!("Test input file already exists: {}", test_input_path.display());
     }
 
     // Create Rust file if it doesn't exist
