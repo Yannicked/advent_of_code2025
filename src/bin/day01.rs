@@ -61,7 +61,7 @@ fn part1(input: &str) -> i64 {
 
 fn part2(input: &str) -> i64 {
     let mut dial: i64 = 50;
-    let mut counter: i64 = 0;
+    let mut counter: i64;
     let mut password: i64 = 0;
     for line in read_lines(input).iter() {
         if let Some(change) = parse_line(line) {
