@@ -23,13 +23,13 @@ mod tests {
 
     #[test]
     fn test_part1() {
-        let input = include_str!("../../inputs/day02_test.txt");
+        let input = include_str!("../../inputs/dayDAY_test.txt");
         assert_eq!(part1(input), "todo");
     }
 
     #[test]
     fn test_part2() {
-        let input = include_str!("../../inputs/day02_test.txt");
+        let input = include_str!("../../inputs/dayDAY_test.txt");
         assert_eq!(part2(input), "todo");
     }
 }
