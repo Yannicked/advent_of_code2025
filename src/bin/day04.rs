@@ -80,7 +80,7 @@ fn part2(input: &str) -> i64 {
     let mut grid = read_grid(input);
     let mut sum = 0;
     loop {
-        let new_rolls = count_rolls_edit(&mut grid); 
+        let new_rolls = count_rolls_edit(&mut grid);
         if new_rolls == 0 {
             break;
         }

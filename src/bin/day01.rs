@@ -1,12 +1,12 @@
 use advent_of_code_2025::utils::read_lines;
 
-fn parse_line(input: &str) -> Option<i64>{
+fn parse_line(input: &str) -> Option<i64> {
     let mut chars = input.chars();
 
     if let Some(first) = chars.next() {
         let rest = chars.as_str();
         let number: i64 = rest.parse().ok()?;
-        
+
         if first == 'R' {
             return Some(number);
         } else {
@@ -25,7 +25,7 @@ fn turn_dial_counter(dial: i64, change: i64) -> (i64, i64) {
     let mut counter = change.abs() / 100;
 
     let remainder = change % 100;
-    
+
     let new_pos = (dial + remainder).rem_euclid(100);
 
     if remainder > 0 {
@@ -40,7 +40,7 @@ fn turn_dial_counter(dial: i64, change: i64) -> (i64, i64) {
         }
     }
 
-    return (new_pos, counter)
+    return (new_pos, counter);
 }
 
 fn part1(input: &str) -> i64 {

@@ -56,7 +56,9 @@ fn main() {
     let input_filename = format!("day{}.txt", day_padded);
     let test_input_filename = format!("day{}_test.txt", day_padded);
 
-    let rs_path = Path::new("src").join("bin").join(format!("{}.rs", module_name));
+    let rs_path = Path::new("src")
+        .join("bin")
+        .join(format!("{}.rs", module_name));
     let input_path = Path::new("inputs").join(&input_filename);
     let test_input_path = Path::new("inputs").join(&test_input_filename);
 
@@ -71,16 +73,25 @@ fn main() {
     }
     if !test_input_path.exists() {
         match fs::write(&test_input_path, "") {
-            Ok(_) => println!("Created empty test input file: {}", test_input_path.display()),
+            Ok(_) => println!(
+                "Created empty test input file: {}",
+                test_input_path.display()
+            ),
             Err(e) => eprintln!("Failed to create test input file: {}", e),
         }
     } else {
-        println!("Test input file already exists: {}", test_input_path.display());
+        println!(
+            "Test input file already exists: {}",
+            test_input_path.display()
+        );
     }
 
     // Create Rust file if it doesn't exist
     if rs_path.exists() {
-        eprintln!("File {} already exists. Skipping generation.", rs_path.display());
+        eprintln!(
+            "File {} already exists. Skipping generation.",
+            rs_path.display()
+        );
         return;
     }
 

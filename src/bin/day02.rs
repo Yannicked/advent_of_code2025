@@ -3,7 +3,7 @@ fn is_periodic(s: &str) -> bool {
     // repeating the string (123123) -> (123123123123)
     // removing the first and last characters -> (2312312312)
     // Checking if the original pattern is still present
-    s.len() > 1 && format!("{}{}", s, s)[1..s.len()*2 - 1].contains(s)
+    s.len() > 1 && format!("{}{}", s, s)[1..s.len() * 2 - 1].contains(s)
 }
 
 fn is_twice(s: &str) -> bool {
@@ -12,8 +12,8 @@ fn is_twice(s: &str) -> bool {
         return false;
     }
 
-    let pattern1 = &s[0..len/2];
-    let pattern2 = &s[len/2..len];
+    let pattern1 = &s[0..len / 2];
+    let pattern2 = &s[len / 2..len];
     return pattern1 == pattern2;
 }
 

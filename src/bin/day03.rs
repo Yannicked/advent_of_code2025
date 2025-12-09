@@ -1,8 +1,5 @@
 fn parse_bank_n(input: &str, n: usize) -> i64 {
-    let digits: Vec<u32> = input
-        .chars()
-        .filter_map(|c| c.to_digit(10))
-        .collect();
+    let digits: Vec<u32> = input.chars().filter_map(|c| c.to_digit(10)).collect();
 
     let mut result: i64 = 0;
     let mut current_pos = 0;
@@ -13,9 +10,14 @@ fn parse_bank_n(input: &str, n: usize) -> i64 {
 
         let search_slice = &digits[current_pos..limit];
 
-        if let Some((offset_idx, &val)) = search_slice.iter().enumerate().rev().max_by_key(|&(_, v)| v) {
+        if let Some((offset_idx, &val)) = search_slice
+            .iter()
+            .enumerate()
+            .rev()
+            .max_by_key(|&(_, v)| v)
+        {
             result = result * 10 + (val as i64);
-            current_pos += offset_idx + 1; 
+            current_pos += offset_idx + 1;
         } else {
             return 0;
         }
@@ -25,17 +27,11 @@ fn parse_bank_n(input: &str, n: usize) -> i64 {
 }
 
 fn part1(input: &str) -> i64 {
-    input
-        .lines()
-        .map(|line| parse_bank_n(line, 2))
-        .sum()
+    input.lines().map(|line| parse_bank_n(line, 2)).sum()
 }
 
 fn part2(input: &str) -> i64 {
-    input
-        .lines()
-        .map(|line| parse_bank_n(line, 12))
-        .sum()
+    input.lines().map(|line| parse_bank_n(line, 12)).sum()
 }
 
 fn main() {

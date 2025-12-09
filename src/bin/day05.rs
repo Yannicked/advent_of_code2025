@@ -1,5 +1,5 @@
-use std::ops::RangeInclusive;
 use std::cmp;
+use std::ops::RangeInclusive;
 
 fn merge_and_sum_ranges(ranges: &mut Vec<RangeInclusive<i64>>) -> i64 {
     ranges.sort_unstable_by_key(|r| *r.start());
