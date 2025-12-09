@@ -56,13 +56,7 @@ fn part2(input: &str) -> i64 {
     let col_iters: Vec<_> = rows.into_iter().map(|row| row.into_iter()).collect();
 
     let transposed_results: Vec<Result<i64, _>> = Columns::new(col_iters)
-        .map(|chars| {
-            chars
-                .into_iter()
-                .collect::<String>()
-                .trim()
-                .parse::<i64>()
-        })
+        .map(|chars| chars.into_iter().collect::<String>().trim().parse::<i64>())
         .collect();
 
     let operand_groups = transposed_results
